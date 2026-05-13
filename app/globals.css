@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   Small Qubit Labs — Design System Tokens
+   Based on DESIGN.md (small_qubit_labs_1 & _2)
+   "Laboratory Chic" — Apple minimalism meets
+   quantum-research precision
+───────────────────────────────────────────── */
+
+:root {
+  /* Surfaces */
+  --color-background:            #f9f9fb;
+  --color-surface:               #f9f9fb;
+  --color-surface-low:           #f3f3f5;
+  --color-surface-container:     #eeeef0;
+  --color-surface-white:         #ffffff;
+
+  /* Text */
+  --color-on-surface:            #1a1c1d;
+  --color-on-surface-variant:    #5d3f3b;
+  --color-secondary-text:        #86868b;
+
+  /* Quantum Red — the sole emotional trigger */
+  --color-primary:               #bc000a;
+  --color-primary-bright:        #e30613;
+  --color-on-primary:            #ffffff;
+
+  /* Structural */
+  --color-outline:               #c0c0c0;
+  --color-outline-subtle:        #d2d2d7;
+  --color-outline-hairline:      #e2e2e4;
+
+  /* Typography scale */
+  --font-sans:                   var(--font-inter);
+  --font-mono:                   var(--font-jetbrains-mono);
+
+  /* Spacing rhythm (4px base) */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   40px;
+  --space-2xl:  64px;
+
+  /* Grid */
+  --container-max:  1200px;
+  --gutter:         24px;
+}
+
+/* ── Base resets ─────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── Typography helpers ───────────────────── */
+.display-xl {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+}
+
+.headline-md {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.body-lg {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.label-mono {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Component primitives ─────────────────── */
+
+/* Primary button — Quantum Red, no shadow */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-primary-bright);
+  color: var(--color-on-primary);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+  text-decoration: none;
+}
+.btn-primary:hover { background-color: var(--color-primary); }
+
+/* Secondary button — hairline border */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--color-on-surface);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid var(--color-on-surface);
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease;
+  text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+
+/* Card */
+.card {
+  background-color: var(--color-surface-white);
+  border: 1px solid var(--color-outline-subtle);
+  border-radius: 4px;
+  padding: var(--space-lg);
+}
+.card:hover { border-color: var(--color-outline); }
+
+/* Hairline divider */
+.divider {
+  border: none;
+  border-top: 0.5px solid var(--color-outline-hairline);
+}
+
+/* Mono tag / badge */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #f5f5f7;
+  border-radius: 2px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Focus ring — Quantum Red */
+:focus-visible {
+  outline: 1px solid var(--color-primary-bright);
+  outline-offset: 2px;
+}
