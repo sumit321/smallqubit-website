@@ -12,10 +12,10 @@ const articles = [
     slug: "research-tools-for-quantum-ai",
     tag: "Quantum · AI · Tools",
     date: "May 2026",
-    title: "The Research Stack for Quantum AI",
+    title: "The Research Stack for Quantum-AI: Why One Tool Will Ruin Your Research",
     summary:
-      "No single tool covers the full quantum-AI research landscape. The mistake most people make is reaching for a general-purpose AI chatbot and wondering why the results feel shallow. Here's the multi-tool workflow I actually use.",
-    readTime: "10 min read",
+      "You can spend $2,000 on AI subscriptions and still end up with confident-sounding bullshit. The mistake is treating research like a monolithic task. Here's the multi-tool stack I've settled on — and why specificity beats generality, always.",
+    readTime: "12 min read",
   },
   {
     slug: "why-quantum-matters-for-ai",

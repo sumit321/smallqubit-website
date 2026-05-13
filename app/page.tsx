@@ -150,8 +150,8 @@ export default function Home() {
               tag: "Quantum · AI · Tools",
               date: "May 2026",
               readTime: "10 min read",
-              title: "The Research Stack for Quantum AI",
-              summary: "No single tool covers the full quantum-AI research landscape. Here's the multi-tool workflow I actually use — from literature review to market intelligence to implementation.",
+              title: "The Research Stack for Quantum-AI: Why One Tool Will Ruin Your Research",
+              summary: "You can spend $2,000 on AI subscriptions and still end up with confident-sounding bullshit. Here's the multi-tool stack I've settled on — and why specificity beats generality, always.",
             },
             {
               href: "/writing/why-quantum-matters-for-ai",
