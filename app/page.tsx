@@ -5,22 +5,19 @@ export default function Home() {
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 pt-28 pb-24">
-
         <p className="label-mono text-[#e30613] mb-8 tracking-widest">
           Small Qubit Labs
         </p>
-
         <h1 className="display-xl text-[#1a1c1d] max-w-3xl mb-6">
           Experimental Quantum.<br />
           Practical AI.
         </h1>
-
         <p className="body-lg text-[#5d5e5f] max-w-2xl mb-10">
           Building solutions today with the quantum and AI tools of tomorrow.
-          An independent research studio at the intersection of quantum computing,
-          artificial intelligence, and precision software engineering.
+          An independent research studio at the intersection of quantum
+          computing, artificial intelligence, and precision software
+          engineering.
         </p>
-
         <div className="flex flex-wrap gap-4">
           <Link href="/lab" className="btn-primary">
             Explore the lab
@@ -31,15 +28,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────── */}
       <div className="max-w-[1200px] mx-auto px-6">
         <hr className="divider" />
       </div>
 
-      {/* ── What we do ───────────────────────────────────── */}
+      {/* ── Areas of focus ───────────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 py-24">
         <p className="label-mono text-[#86868b] mb-12">Areas of focus</p>
-
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -69,7 +64,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────── */}
+      <div className="max-w-[1200px] mx-auto px-6">
+        <hr className="divider" />
+      </div>
+
+      {/* ── The lab in numbers ───────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 py-24">
+        <p className="label-mono text-[#86868b] mb-12">The lab, at a glance</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { value: "10+", label: "Years in enterprise architecture" },
+            { value: "4", label: "Active areas of exploration" },
+            { value: "1", label: "Published articles — growing" },
+            { value: "∞", label: "Problems worth solving" },
+          ].map(({ value, label }) => (
+            <div key={label} className="py-6 border-b border-[#e2e2e4]">
+              <p className="text-[40px] font-semibold text-[#1a1c1d] leading-none tracking-tight mb-2">
+                {value}
+              </p>
+              <p className="label-mono text-[#86868b]">{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="max-w-[1200px] mx-auto px-6">
+        <hr className="divider" />
+      </div>
+
+      {/* ── Who I work with ──────────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 py-24">
+        <p className="label-mono text-[#86868b] mb-12">Who I work with</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              tag: "AI Transformation",
+              title: "Enterprises going beyond the pilot",
+              body: "Organisations that have seen enough AI proof-of-concepts to know what doesn't work, and want architectural guidance on building AI systems that actually stay in production.",
+            },
+            {
+              tag: "Quantum Strategy",
+              title: "Teams planning ahead",
+              body: "Technology and strategy teams who want to understand the quantum computing landscape honestly — where it creates real opportunity, and where the hype outpaces the hardware.",
+            },
+            {
+              tag: "Precision Software",
+              title: "Builders with high standards",
+              body: "Founders and engineering leads building technically complex products who care about getting the architecture right the first time, not refactoring it later under pressure.",
+            },
+          ].map((card) => (
+            <div key={card.tag} className="card">
+              <span className="badge mb-5 block">{card.tag}</span>
+              <h2 className="headline-md text-[#1a1c1d] mb-3">{card.title}</h2>
+              <p className="text-[15px] text-[#5d5e5f] leading-relaxed">
+                {card.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <div className="max-w-[1200px] mx-auto px-6">
         <hr className="divider" />
       </div>
@@ -89,12 +143,15 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Featured article */}
         <Link href="/writing/why-quantum-matters-for-ai" className="block group">
           <div className="card hover:border-[#c0c0c0] transition-colors duration-200">
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
-                <span className="badge mb-4 block">Quantum · AI</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="badge">Quantum · AI</span>
+                  <span className="label-mono text-[#86868b]">May 2026</span>
+                  <span className="label-mono text-[#c0c0c0]">8 min read</span>
+                </div>
                 <h3 className="headline-md text-[#1a1c1d] mb-3 group-hover:text-[#e30613] transition-colors duration-150">
                   Why Quantum Matters for AI
                 </h3>
@@ -120,7 +177,6 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────── */}
       <div className="max-w-[1200px] mx-auto px-6">
         <hr className="divider" />
       </div>
@@ -132,9 +188,9 @@ export default function Home() {
             <h2 className="headline-lg text-[#1a1c1d] mb-2">
               Working on something hard?
             </h2>
-            <p className="text-[15px] text-[#5d5e5f]">
+            <p className="text-[15px] text-[#5d5e5f] max-w-xl">
               I work with a small number of teams on quantum and AI challenges.
-              If the problem is interesting, let's talk.
+              If the problem is genuinely interesting, let's talk.
             </p>
           </div>
           <a
