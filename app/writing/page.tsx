@@ -9,6 +9,15 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "research-tools-for-quantum-ai",
+    tag: "Quantum · AI · Tools",
+    date: "May 2026",
+    title: "The Research Stack for Quantum AI",
+    summary:
+      "No single tool covers the full quantum-AI research landscape. The mistake most people make is reaching for a general-purpose AI chatbot and wondering why the results feel shallow. Here's the multi-tool workflow I actually use.",
+    readTime: "10 min read",
+  },
+  {
     slug: "why-quantum-matters-for-ai",
     tag: "Quantum · AI",
     date: "May 2026",

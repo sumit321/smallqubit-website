@@ -75,7 +75,7 @@ export default function Home() {
           {[
             { value: "10+", label: "Years in enterprise architecture" },
             { value: "4", label: "Active areas of exploration" },
-            { value: "1", label: "Published articles — growing" },
+            { value: "2", label: "Published articles — growing" },
             { value: "∞", label: "Problems worth solving" },
           ].map(({ value, label }) => (
             <div key={label} className="py-6 border-b border-[#e2e2e4]">
@@ -143,31 +143,49 @@ export default function Home() {
           </Link>
         </div>
 
-        <Link href="/writing/why-quantum-matters-for-ai" className="block group">
-          <div className="card hover:border-[#c0c0c0] transition-colors duration-200">
-            <div className="flex items-start justify-between gap-6">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="badge">Quantum · AI</span>
-                  <span className="label-mono text-[#86868b]">May 2026</span>
-                  <span className="label-mono text-[#c0c0c0]">8 min read</span>
+        <div className="space-y-4">
+          {[
+            {
+              href: "/writing/research-tools-for-quantum-ai",
+              tag: "Quantum · AI · Tools",
+              date: "May 2026",
+              readTime: "10 min read",
+              title: "The Research Stack for Quantum AI",
+              summary: "No single tool covers the full quantum-AI research landscape. Here's the multi-tool workflow I actually use — from literature review to market intelligence to implementation.",
+            },
+            {
+              href: "/writing/why-quantum-matters-for-ai",
+              tag: "Quantum · AI",
+              date: "May 2026",
+              readTime: "8 min read",
+              title: "Why Quantum Matters for AI",
+              summary: "The convergence of quantum computing and AI isn't a distant prospect — it's already reshaping how we think about computation, optimisation, and the limits of machine learning.",
+            },
+          ].map((article) => (
+            <Link key={article.href} href={article.href} className="block group">
+              <div className="card hover:border-[#c0c0c0] transition-colors duration-200">
+                <div className="flex items-start justify-between gap-6">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="badge">{article.tag}</span>
+                      <span className="label-mono text-[#86868b]">{article.date}</span>
+                      <span className="label-mono text-[#c0c0c0]">{article.readTime}</span>
+                    </div>
+                    <h3 className="headline-md text-[#1a1c1d] mb-3 group-hover:text-[#e30613] transition-colors duration-150">
+                      {article.title}
+                    </h3>
+                    <p className="text-[15px] text-[#5d5e5f] leading-relaxed max-w-2xl">
+                      {article.summary}
+                    </p>
+                  </div>
+                  <span className="hidden md:block text-[24px] text-[#e2e2e4] group-hover:text-[#e30613] transition-colors duration-150 flex-shrink-0 mt-1">
+                    →
+                  </span>
                 </div>
-                <h3 className="headline-md text-[#1a1c1d] mb-3 group-hover:text-[#e30613] transition-colors duration-150">
-                  Why Quantum Matters for AI
-                </h3>
-                <p className="text-[15px] text-[#5d5e5f] leading-relaxed max-w-2xl">
-                  The convergence of quantum computing and artificial intelligence
-                  isn't a distant prospect — it's already reshaping how we think
-                  about computation, optimisation, and the limits of machine
-                  learning. Here's why it matters, and what to watch.
-                </p>
               </div>
-              <span className="hidden md:block text-[24px] text-[#e2e2e4] group-hover:text-[#e30613] transition-colors duration-150 flex-shrink-0 mt-1">
-                →
-              </span>
-            </div>
-          </div>
-        </Link>
+            </Link>
+          ))}
+        </div>
 
         <Link
           href="/writing"
