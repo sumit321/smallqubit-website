@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import "./globals.css";
 
-// Inter — primary UI font (Apple-level neutrality and precision)
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
 
-// JetBrains Mono — for technical labels, code blocks, metadata
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
@@ -17,18 +17,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Small Qubit Labs",
+  title: {
+    default: "Small Qubit Labs",
+    template: "%s · Small Qubit Labs",
+  },
   description:
-    "A laboratory for ideas at the intersection of quantum computing, AI, and precision engineering.",
+    "Experimental Quantum. Practical AI. An independent research studio building solutions at the quantum-AI frontier.",
   openGraph: {
     title: "Small Qubit Labs",
     description:
-      "A laboratory for ideas at the intersection of quantum computing, AI, and precision engineering.",
+      "Experimental Quantum. Practical AI. An independent research studio building solutions at the quantum-AI frontier.",
     url: "https://www.smallqubit.com",
     siteName: "Small Qubit Labs",
     locale: "en_US",
     type: "website",
   },
+  metadataBase: new URL("https://www.smallqubit.com"),
 };
 
 export default function RootLayout({
@@ -42,7 +46,9 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f9f9fb] text-[#1a1c1d]">
-        {children}
+        <Nav />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
