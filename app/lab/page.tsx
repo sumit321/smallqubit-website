@@ -12,13 +12,13 @@ export default function Lab() {
 
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="label-mono text-[#e30613] mb-8">The Lab</p>
-        <h1 className="display-xl text-[#1a1c1d] mb-6">
+        <p className="label-mono label-mono--accent mb-8">The Lab</p>
+        <h1 className="display-xl mb-6">
           Where ideas get tested.
         </h1>
-        <p className="body-lg text-[#5d5e5f]">
+        <p className="body-lg">
           The lab is the engine of Small Qubit Labs. Not a portfolio of
-          finished work — a live record of what's being explored, built, and
+          finished work — a live record of what&apos;s being explored, built, and
           questioned. Everything here is in motion.
         </p>
       </div>
@@ -26,16 +26,14 @@ export default function Lab() {
       <hr className="divider mb-20" />
 
       {/* Status indicator */}
-      <div className="flex items-center gap-3 mb-16">
-        <span className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#e30613] animate-pulse" />
-          <span className="label-mono text-[#86868b]">Lab status: active</span>
-        </span>
+      <div className="flex items-center gap-2 mb-16">
+        <span className="dot dot--pulse" aria-hidden="true" />
+        <span className="label-mono text-[var(--color-secondary-text)]">Lab status: active</span>
       </div>
 
       {/* Areas of exploration */}
       <div className="mb-20">
-        <p className="label-mono text-[#86868b] mb-12">Areas of exploration</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">Areas of exploration</p>
         <div className="space-y-4">
           {[
             {
@@ -63,15 +61,13 @@ export default function Lab() {
               body: "Building and documenting the design principles that make technically complex software feel inevitable and simple. Inspired by the discipline of quantum circuit notation — every gate placed deliberately, nothing wasted.",
             },
           ].map((item) => (
-            <div key={item.tag} className="card group">
+            <div key={item.tag} className="card">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="badge">{item.tag}</span>
-                </div>
-                <span className="label-mono text-[#86868b]">{item.status}</span>
+                <span className="badge">{item.tag}</span>
+                <span className="label-mono text-[var(--color-secondary-text)]">{item.status}</span>
               </div>
-              <h2 className="headline-md text-[#1a1c1d] mb-3">{item.title}</h2>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed max-w-3xl">
+              <h2 className="headline-md mb-3">{item.title}</h2>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] max-w-3xl m-0">
                 {item.body}
               </p>
             </div>
@@ -83,7 +79,7 @@ export default function Lab() {
 
       {/* What's coming */}
       <div className="mb-20">
-        <p className="label-mono text-[#86868b] mb-12">On the workbench</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">On the workbench</p>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -104,11 +100,11 @@ export default function Lab() {
           ].map((item) => (
             <div
               key={item.title}
-              className="card border-dashed opacity-70"
+              className="card card--dashed"
             >
               <span className="badge mb-4 block">{item.tag}</span>
-              <h3 className="headline-md text-[#1a1c1d] mb-3">{item.title}</h3>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed">
+              <h3 className="headline-md mb-3">{item.title}</h3>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] m-0">
                 {item.body}
               </p>
             </div>
@@ -121,12 +117,12 @@ export default function Lab() {
       {/* CTA */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div>
-          <h2 className="headline-lg text-[#1a1c1d] mb-2">
+          <h2 className="headline-lg mb-2">
             Interested in collaborating?
           </h2>
-          <p className="text-[15px] text-[#5d5e5f]">
-            If you're working on something in this space — or have a problem
-            that might benefit from a quantum or AI lens — I'd like to hear
+          <p className="text-[15px] text-[var(--color-body)] m-0">
+            If you&apos;re working on something in this space — or have a problem
+            that might benefit from a quantum or AI lens — I&apos;d like to hear
             about it.
           </p>
         </div>

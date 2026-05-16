@@ -5,14 +5,14 @@ export default function Home() {
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 pt-28 pb-24">
-        <p className="label-mono text-[#e30613] mb-8 tracking-widest">
+        <p className="label-mono label-mono--accent mb-8" style={{ letterSpacing: "0.12em" }}>
           Small Qubit Labs
         </p>
-        <h1 className="display-xl text-[#1a1c1d] max-w-3xl mb-6">
+        <h1 className="display-xl max-w-3xl mb-6">
           Experimental Quantum.<br />
           Practical AI.
         </h1>
-        <p className="body-lg text-[#5d5e5f] max-w-2xl mb-10">
+        <p className="body-lg max-w-2xl mb-10">
           Building solutions today with the quantum and AI tools of tomorrow.
           An independent research studio at the intersection of quantum
           computing, artificial intelligence, and precision software
@@ -34,7 +34,7 @@ export default function Home() {
 
       {/* ── Areas of focus ───────────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 py-24">
-        <p className="label-mono text-[#86868b] mb-12">Areas of focus</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">Areas of focus</p>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -55,8 +55,8 @@ export default function Home() {
           ].map((card) => (
             <div key={card.tag} className="card">
               <span className="badge mb-5 block">{card.tag}</span>
-              <h2 className="headline-md text-[#1a1c1d] mb-3">{card.title}</h2>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed">
+              <h2 className="headline-md mb-3">{card.title}</h2>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] m-0">
                 {card.body}
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function Home() {
 
       {/* ── The lab in numbers ───────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 py-24">
-        <p className="label-mono text-[#86868b] mb-12">The lab, at a glance</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">The lab, at a glance</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { value: "10+", label: "Years in enterprise architecture" },
@@ -78,11 +78,11 @@ export default function Home() {
             { value: "2", label: "Published articles — growing" },
             { value: "∞", label: "Problems worth solving" },
           ].map(({ value, label }) => (
-            <div key={label} className="py-6 border-b border-[#e2e2e4]">
-              <p className="text-[40px] font-semibold text-[#1a1c1d] leading-none tracking-tight mb-2">
+            <div key={label} className="py-6 border-b border-[var(--color-outline-hairline)]">
+              <p className="text-[40px] font-semibold text-[var(--color-on-surface)] leading-none tracking-tight mb-2">
                 {value}
               </p>
-              <p className="label-mono text-[#86868b]">{label}</p>
+              <p className="label-mono text-[var(--color-secondary-text)] m-0">{label}</p>
             </div>
           ))}
         </div>
@@ -94,7 +94,7 @@ export default function Home() {
 
       {/* ── Who I work with ──────────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 py-24">
-        <p className="label-mono text-[#86868b] mb-12">Who I work with</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">Who I work with</p>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -115,8 +115,8 @@ export default function Home() {
           ].map((card) => (
             <div key={card.tag} className="card">
               <span className="badge mb-5 block">{card.tag}</span>
-              <h2 className="headline-md text-[#1a1c1d] mb-3">{card.title}</h2>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed">
+              <h2 className="headline-md mb-3">{card.title}</h2>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] m-0">
                 {card.body}
               </p>
             </div>
@@ -130,14 +130,14 @@ export default function Home() {
 
       {/* ── From the lab ─────────────────────────────────── */}
       <section className="max-w-[1200px] mx-auto px-6 py-24">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <p className="label-mono text-[#86868b] mb-2">From the lab</p>
-            <h2 className="headline-lg text-[#1a1c1d]">Latest thinking</h2>
+            <p className="label-mono text-[var(--color-secondary-text)] mb-2">From the lab</p>
+            <h2 className="headline-lg">Latest thinking</h2>
           </div>
           <Link
             href="/writing"
-            className="hidden md:inline text-[14px] font-medium text-[#e30613] hover:text-[#bc000a] transition-colors"
+            className="hidden md:inline text-[14px] font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors duration-150"
           >
             All articles →
           </Link>
@@ -163,22 +163,22 @@ export default function Home() {
             },
           ].map((article) => (
             <Link key={article.href} href={article.href} className="block group">
-              <div className="card hover:border-[#c0c0c0] transition-colors duration-200">
+              <div className="card hover:border-[var(--color-outline)] transition-colors duration-200">
                 <div className="flex items-start justify-between gap-6">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-4 flex-wrap">
                       <span className="badge">{article.tag}</span>
-                      <span className="label-mono text-[#86868b]">{article.date}</span>
-                      <span className="label-mono text-[#c0c0c0]">{article.readTime}</span>
+                      <span className="label-mono text-[var(--color-secondary-text)]">{article.date}</span>
+                      <span className="label-mono text-[var(--color-outline)]">{article.readTime}</span>
                     </div>
-                    <h3 className="headline-md text-[#1a1c1d] mb-3 group-hover:text-[#e30613] transition-colors duration-150">
+                    <h3 className="headline-md mb-3 group-hover:text-[var(--color-primary)] transition-colors duration-150">
                       {article.title}
                     </h3>
-                    <p className="text-[15px] text-[#5d5e5f] leading-relaxed max-w-2xl">
+                    <p className="text-[15px] text-[var(--color-body)] leading-[1.7] max-w-2xl m-0">
                       {article.summary}
                     </p>
                   </div>
-                  <span className="hidden md:block text-[24px] text-[#e2e2e4] group-hover:text-[#e30613] transition-colors duration-150 flex-shrink-0 mt-1">
+                  <span className="hidden md:block text-[24px] text-[var(--color-outline-hairline)] group-hover:text-[var(--color-primary)] transition-colors duration-150 flex-shrink-0 mt-1">
                     →
                   </span>
                 </div>
@@ -189,7 +189,7 @@ export default function Home() {
 
         <Link
           href="/writing"
-          className="md:hidden inline-block mt-6 text-[14px] font-medium text-[#e30613]"
+          className="md:hidden inline-block mt-6 text-[14px] font-medium text-[var(--color-primary)]"
         >
           All articles →
         </Link>
@@ -203,10 +203,10 @@ export default function Home() {
       <section className="max-w-[1200px] mx-auto px-6 py-24">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <h2 className="headline-lg text-[#1a1c1d] mb-2">
+            <h2 className="headline-lg mb-2">
               Working on something hard?
             </h2>
-            <p className="text-[15px] text-[#5d5e5f] max-w-xl">
+            <p className="text-[15px] text-[var(--color-body)] max-w-xl m-0">
               I work with a small number of teams on quantum and AI challenges.
               If the problem is genuinely interesting, let's talk.
             </p>

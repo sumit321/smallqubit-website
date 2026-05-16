@@ -16,13 +16,13 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full border-b border-[#e2e2e4] bg-white/90 backdrop-blur-sm sticky top-0 z-50">
+    <header className="w-full border-b border-[var(--color-outline-hairline)] bg-white/90 backdrop-blur-[4px] sticky top-0 z-50">
       <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Wordmark */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <span className="w-2 h-2 rounded-full bg-[#e30613] flex-shrink-0" aria-hidden="true" />
-          <span className="text-[15px] font-semibold tracking-tight text-[#1a1c1d]">
+          <span className="dot" aria-hidden="true" />
+          <span className="text-[15px] font-semibold tracking-tight text-[var(--color-on-surface)]">
             Small Qubit Labs
           </span>
         </Link>
@@ -37,8 +37,8 @@ export default function Nav() {
                 href={href}
                 className={`text-[14px] font-medium transition-colors duration-150 ${
                   active
-                    ? "text-[#1a1c1d]"
-                    : "text-[#86868b] hover:text-[#1a1c1d]"
+                    ? "text-[var(--color-primary)]"
+                    : "text-[var(--color-secondary-text)] hover:text-[var(--color-on-surface)]"
                 }`}
               >
                 {label}
@@ -50,7 +50,7 @@ export default function Nav() {
         {/* CTA */}
         <a
           href="mailto:sumit.sharma@icloud.com"
-          className="hidden md:inline-flex items-center px-4 py-2 text-[13px] font-medium text-white bg-[#e30613] hover:bg-[#bc000a] rounded-[4px] transition-colors duration-150"
+          className="hidden md:inline-flex btn-primary !py-2 !px-4 !text-[13px]"
         >
           Get in touch
         </a>
@@ -61,28 +61,33 @@ export default function Nav() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-px bg-[#1a1c1d] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-5 h-px bg-[#1a1c1d] transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-5 h-px bg-[#1a1c1d] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-5 h-px bg-[var(--color-on-surface)] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-px bg-[var(--color-on-surface)] transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-px bg-[var(--color-on-surface)] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-[#e2e2e4] bg-white px-6 py-4 flex flex-col gap-4">
-          {links.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              className="text-[15px] font-medium text-[#1a1c1d]"
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="md:hidden border-t border-[var(--color-outline-hairline)] bg-white px-6 py-4 flex flex-col gap-4">
+          {links.map(({ label, href }) => {
+            const active = pathname === href || pathname.startsWith(href + "/");
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className={`text-[15px] font-medium ${
+                  active ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface)]"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
           <a
             href="mailto:sumit.sharma@icloud.com"
-            className="inline-flex items-center justify-center px-4 py-2 text-[13px] font-medium text-white bg-[#e30613] rounded-[4px] mt-2"
+            className="btn-primary !justify-center mt-2"
           >
             Get in touch
           </a>

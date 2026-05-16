@@ -34,11 +34,11 @@ export default function Writing() {
 
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="label-mono text-[#e30613] mb-8">Writing</p>
-        <h1 className="display-xl text-[#1a1c1d] mb-6">
+        <p className="label-mono label-mono--accent mb-8">Writing</p>
+        <h1 className="display-xl mb-6">
           Ideas, made precise.
         </h1>
-        <p className="body-lg text-[#5d5e5f]">
+        <p className="body-lg">
           Writing from the lab on quantum computing, AI systems, and the
           principles behind building software that lasts. Rigorous, but
           readable. Published when ready — not on a schedule.
@@ -55,22 +55,22 @@ export default function Writing() {
             href={`/writing/${article.slug}`}
             className="block group"
           >
-            <div className="card hover:border-[#c0c0c0] transition-colors duration-200">
+            <div className="card hover:border-[var(--color-outline)] transition-colors duration-200">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <span className="badge">{article.tag}</span>
-                    <span className="label-mono text-[#86868b]">{article.date}</span>
-                    <span className="label-mono text-[#c0c0c0]">{article.readTime}</span>
+                    <span className="label-mono text-[var(--color-secondary-text)]">{article.date}</span>
+                    <span className="label-mono text-[var(--color-outline)]">{article.readTime}</span>
                   </div>
-                  <h2 className="headline-md text-[#1a1c1d] mb-3 group-hover:text-[#e30613] transition-colors duration-150">
+                  <h2 className="headline-md mb-3 group-hover:text-[var(--color-primary)] transition-colors duration-150">
                     {article.title}
                   </h2>
-                  <p className="text-[15px] text-[#5d5e5f] leading-relaxed max-w-2xl">
+                  <p className="text-[15px] text-[var(--color-body)] leading-[1.7] max-w-2xl m-0">
                     {article.summary}
                   </p>
                 </div>
-                <span className="hidden md:block text-[24px] text-[#e2e2e4] group-hover:text-[#e30613] transition-colors duration-150 flex-shrink-0 mt-1">
+                <span className="hidden md:block text-[24px] text-[var(--color-outline-hairline)] group-hover:text-[var(--color-primary)] transition-colors duration-150 flex-shrink-0 mt-1">
                   →
                 </span>
               </div>

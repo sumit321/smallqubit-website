@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────
-   Small Qubit Labs — Design System Tokens
-   Based on DESIGN.md (small_qubit_labs_1 & _2)
+   Small Qubit Labs — Design System Tokens v1.0
    "Laboratory Chic" — Apple minimalism meets
    quantum-research precision
 ───────────────────────────────────────────── */
@@ -18,11 +17,13 @@
   /* Text */
   --color-on-surface:            #1a1c1d;
   --color-on-surface-variant:    #5d3f3b;
+  --color-body:                  #5d5e5f;
+  --color-body-warm:             #3a3a3a;
   --color-secondary-text:        #86868b;
 
   /* Quantum Red — the sole emotional trigger */
   --color-primary:               #bc000a;
-  --color-primary-bright:        #e30613;
+  --color-primary-hover:         #9a0008;
   --color-on-primary:            #ffffff;
 
   /* Structural */
@@ -30,9 +31,9 @@
   --color-outline-subtle:        #d2d2d7;
   --color-outline-hairline:      #e2e2e4;
 
-  /* Typography scale */
-  --font-sans:                   var(--font-inter);
-  --font-mono:                   var(--font-jetbrains-mono);
+  /* Typography — SF Pro on Apple, Inter as universal fallback */
+  --font-sans:   -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", var(--font-inter), system-ui, sans-serif;
+  --font-mono:   ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, "Cascadia Mono", var(--font-jetbrains-mono), monospace;
 
   /* Spacing rhythm (4px base) */
   --space-xs:   4px;
@@ -41,10 +42,22 @@
   --space-lg:   24px;
   --space-xl:   40px;
   --space-2xl:  64px;
+  --space-3xl:  96px;
+
+  /* Radii */
+  --radius-pill:   999px;
+  --radius-sharp:  2px;
+  --radius-base:   4px;
 
   /* Grid */
   --container-max:  1200px;
   --gutter:         24px;
+
+  /* Motion */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   120ms;
+  --dur-base:   150ms;
+  --dur-slow:   200ms;
 }
 
 /* ── Base resets ─────────────────────────── */
@@ -60,7 +73,7 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-on-surface);
-  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -71,6 +84,7 @@ body {
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  color: var(--color-on-surface);
 }
 
 .headline-lg {
@@ -78,6 +92,7 @@ body {
   font-weight: 500;
   line-height: 40px;
   letter-spacing: -0.01em;
+  color: var(--color-on-surface);
 }
 
 .headline-md {
@@ -85,16 +100,18 @@ body {
   font-weight: 500;
   line-height: 32px;
   letter-spacing: -0.01em;
+  color: var(--color-on-surface);
 }
 
 .body-lg {
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
+  color: var(--color-body);
 }
 
 .label-mono {
-  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
@@ -102,28 +119,31 @@ body {
   text-transform: uppercase;
 }
 
+.label-mono--accent { color: var(--color-primary); }
+
 /* ── Component primitives ─────────────────── */
 
-/* Primary button — Quantum Red, no shadow */
+/* Primary button — Quantum Red, no shadow, no gradient */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 12px 24px;
-  background-color: var(--color-primary-bright);
+  background-color: var(--color-primary);
   color: var(--color-on-primary);
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.01em;
-  border-radius: 4px;
+  border-radius: var(--radius-base);
   border: none;
   cursor: pointer;
-  transition: background-color 120ms ease;
+  transition: background-color var(--dur-fast) ease;
   text-decoration: none;
 }
-.btn-primary:hover { background-color: var(--color-primary); }
+.btn-primary:hover { background-color: var(--color-primary-hover); }
 
-/* Secondary button — hairline border */
+/* Secondary button — hairline 1px border, no fill */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -131,38 +151,48 @@ body {
   padding: 12px 24px;
   background-color: transparent;
   color: var(--color-on-surface);
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: var(--radius-base);
   border: 1px solid var(--color-on-surface);
   cursor: pointer;
-  transition: border-color 120ms ease, color 120ms ease;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
   text-decoration: none;
 }
-.btn-secondary:hover { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
 
-/* Card */
+/* Card — flat surface with 1px outline; border darkens on hover. NO shadows. */
 .card {
   background-color: var(--color-surface-white);
   border: 1px solid var(--color-outline-subtle);
-  border-radius: 4px;
+  border-radius: var(--radius-base);
   padding: var(--space-lg);
+  transition: border-color var(--dur-slow) ease;
 }
 .card:hover { border-color: var(--color-outline); }
 
-/* Hairline divider */
+.card--dashed {
+  border-style: dashed;
+  opacity: 0.8;
+}
+
+/* Hairline divider — 0.5px is intentional */
 .divider {
   border: none;
   border-top: 0.5px solid var(--color-outline-hairline);
 }
 
-/* Mono tag / badge */
+/* Mono tag / badge — uppercase, tracking, mono */
 .badge {
   display: inline-block;
   padding: 2px 8px;
   background-color: #f5f5f7;
-  border-radius: 2px;
-  font-family: var(--font-mono), monospace;
+  border-radius: var(--radius-sharp);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
   color: var(--color-on-surface-variant);
@@ -170,8 +200,32 @@ body {
   text-transform: uppercase;
 }
 
+/* The signature mark — a small Quantum Red dot */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  flex-shrink: 0;
+}
+.dot--sm { width: 6px; height: 6px; }
+.dot--lg { width: 10px; height: 10px; }
+.dot--pulse { animation: dot-pulse 2s var(--ease-out) infinite; }
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
 /* Focus ring — Quantum Red */
 :focus-visible {
-  outline: 1px solid var(--color-primary-bright);
+  outline: 1px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }

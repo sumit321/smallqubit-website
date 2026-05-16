@@ -12,12 +12,12 @@ export default function AILab() {
 
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="label-mono text-[#e30613] mb-8">AI Lab</p>
-        <h1 className="display-xl text-[#1a1c1d] mb-6">
+        <p className="label-mono label-mono--accent mb-8">AI Lab</p>
+        <h1 className="display-xl mb-6">
           Building with AI.<br />
           Not just talking about it.
         </h1>
-        <p className="body-lg text-[#5d5e5f]">
+        <p className="body-lg">
           The AI Lab is where I ship software. Tools, agents, automations,
           and applications — built with the best AI APIs and frameworks
           available today. Every project is a real thing that runs, not a
@@ -28,14 +28,14 @@ export default function AILab() {
       <hr className="divider mb-20" />
 
       {/* Status */}
-      <div className="flex items-center gap-3 mb-16">
-        <span className="w-2 h-2 rounded-full bg-[#e30613] animate-pulse" />
-        <span className="label-mono text-[#86868b]">Status: first projects in development</span>
+      <div className="flex items-center gap-2 mb-16">
+        <span className="dot dot--pulse" aria-hidden="true" />
+        <span className="label-mono text-[var(--color-secondary-text)]">Status: first projects in development</span>
       </div>
 
       {/* What I build */}
       <div className="mb-20">
-        <p className="label-mono text-[#86868b] mb-12">What I build</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">What I build</p>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -56,8 +56,8 @@ export default function AILab() {
           ].map((card) => (
             <div key={card.tag} className="card">
               <span className="badge mb-5 block">{card.tag}</span>
-              <h2 className="headline-md text-[#1a1c1d] mb-3">{card.title}</h2>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed">{card.body}</p>
+              <h2 className="headline-md mb-3">{card.title}</h2>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] m-0">{card.body}</p>
             </div>
           ))}
         </div>
@@ -67,7 +67,7 @@ export default function AILab() {
 
       {/* Projects — empty state */}
       <div className="mb-20">
-        <p className="label-mono text-[#86868b] mb-12">Projects</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">Projects</p>
         <div className="space-y-4">
           {[
             {
@@ -92,15 +92,13 @@ export default function AILab() {
               stack: [],
             },
           ].map((project, i) => (
-            <div key={i} className="card border-dashed opacity-80">
+            <div key={i} className="card card--dashed">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="badge">{project.tag}</span>
-                </div>
-                <span className="label-mono text-[#86868b]">{project.status}</span>
+                <span className="badge">{project.tag}</span>
+                <span className="label-mono text-[var(--color-secondary-text)]">{project.status}</span>
               </div>
-              <h2 className="headline-md text-[#1a1c1d] mb-3">{project.title}</h2>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed mb-5">
+              <h2 className="headline-md mb-3">{project.title}</h2>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] mb-5 m-0">
                 {project.body}
               </p>
               {project.stack.length > 0 && (
@@ -119,7 +117,7 @@ export default function AILab() {
 
       {/* The stack */}
       <div className="mb-20">
-        <p className="label-mono text-[#86868b] mb-12">The stack</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">The stack</p>
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-0">
           {[
             { category: "AI / LLM APIs", items: "Claude (Anthropic), GPT-4o (OpenAI), Gemini" },
@@ -131,9 +129,9 @@ export default function AILab() {
             { category: "Infrastructure", items: "Vercel, GitHub Actions, Docker" },
             { category: "Observability", items: "Langfuse, custom evals" },
           ].map(({ category, items }) => (
-            <div key={category} className="py-5 border-b border-[#e2e2e4]">
-              <p className="label-mono text-[#86868b] mb-1">{category}</p>
-              <p className="text-[15px] text-[#1a1c1d] font-medium">{items}</p>
+            <div key={category} className="py-5 border-b border-[var(--color-outline-hairline)]">
+              <p className="label-mono text-[var(--color-secondary-text)] mb-1">{category}</p>
+              <p className="text-[15px] text-[var(--color-on-surface)] font-medium m-0">{items}</p>
             </div>
           ))}
         </div>
@@ -143,7 +141,7 @@ export default function AILab() {
 
       {/* Principles */}
       <div className="mb-20">
-        <p className="label-mono text-[#86868b] mb-12">How I build</p>
+        <p className="label-mono text-[var(--color-secondary-text)] mb-12">How I build</p>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
@@ -161,7 +159,7 @@ export default function AILab() {
           ].map((item) => (
             <div key={item.tag} className="card">
               <span className="badge mb-4 block">{item.tag}</span>
-              <p className="text-[15px] text-[#5d5e5f] leading-relaxed">{item.body}</p>
+              <p className="text-[15px] text-[var(--color-body)] leading-[1.7] m-0">{item.body}</p>
             </div>
           ))}
         </div>
@@ -172,12 +170,12 @@ export default function AILab() {
       {/* CTA */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div>
-          <h2 className="headline-lg text-[#1a1c1d] mb-2">
+          <h2 className="headline-lg mb-2">
             Have a problem worth solving?
           </h2>
-          <p className="text-[15px] text-[#5d5e5f]">
-            If you're looking for AI software built with architectural discipline
-            — not a no-code wrapper — let's talk.
+          <p className="text-[15px] text-[var(--color-body)] m-0">
+            If you&apos;re looking for AI software built with architectural discipline
+            — not a no-code wrapper — let&apos;s talk.
           </p>
         </div>
         <a
